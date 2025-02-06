@@ -104,7 +104,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     nuxt.options.build.transpile.push(runtimeDir)
     nuxt.options.vite.define['process.env.DEBUG'] =
-      nuxt.options.debug.toString()
+      Boolean(nuxt.options.debug).toString()
 
     for (const fname of ['default']) {
       const path = resolve(runtimeDir, nuxt.options.dir.layouts, `${fname}.vue`)
